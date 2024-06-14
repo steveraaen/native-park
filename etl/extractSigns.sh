@@ -19,4 +19,4 @@ time jq '{
 }' rawSigns.json > justBrooms.geojson
 time sh cleanSigns.sh
 time jq '[.features[].properties.SIGNDESC] | unique[]' modifiedBrooms.json > uniqueSigns.json
-time rm -rf modifiedBrooms.json
+time rm -rf justBrooms.geojson rawSigns.json 
