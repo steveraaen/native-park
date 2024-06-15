@@ -7,8 +7,8 @@ time jq '
     .properties.SIGNDESC |= gsub("\\s?W/?\\s*SINGLE ARROW"; "") |
     .properties.SIGNDESC |= gsub("\\s*SUPER?SEDE.*|SEE.*|DATED.*|\\s*USE PS.*|W\\/\\s*"; "") |
     .properties.SIGNDESC |= gsub("EXCEPT\\s(SUNDAY|SUN)"; "MON TUE WED THU FRI SAT") |
-    .properties.SIGNDESC |= gsub("(?<a>[1-9](00)?1?2?10?-?)(?<b>AM|PM|-)";.a+":00"+.b) |
-    .properties.SIGNDESC |= gsub("(?<a>-[1-9])(?<b>AM|PM|-)";.a+":00"+.b) |
+    # .properties.SIGNDESC |= gsub("(?<a>[1-9](00)?1?2?10?-?)(?<b>AM|PM|-)";.a+":00"+.b) |
+    # .properties.SIGNDESC |= gsub("(?<a>-[1-9])(?<b>AM|PM|-)";.a+":00"+.b) |
     .properties.SIGNDESC |= gsub("12AM|MIDNIGHT";"12:00AM") | 
     .properties.SIGNDESC |= gsub("1AM|1-";"1:00AM") | 
     .properties.SIGNDESC |= gsub("2AM|2-";"2:00AM") | 
@@ -41,3 +41,5 @@ time jq '
     .properties.SIGNDESC |= gsub("1\\sPM ";"1:00PM") 
   )
 ' justBrooms.geojson > modifiedBrooms.json
+
+time jq '[.features[].properties.SIGNDESC] | unique[]' modifiedBrooms.json > uniqueSigns.json

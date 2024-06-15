@@ -1,3 +1,4 @@
+#!/bin/bash
 time curl https://www1.nyc.gov/html/dot/downloads/ParkReg/Parking_Regulation_Shapefile.zip  -L -o  nyc_signs.zip
 time unzip -n nyc_signs.zip
 time rm nyc_signs.zip
@@ -17,6 +18,6 @@ time jq '{
     }
   ]
 }' rawSigns.json > justBrooms.geojson
-time sh cleanSigns.sh
-time jq '[.features[].properties.SIGNDESC] | unique[]' modifiedBrooms.json > uniqueSigns.json
-time rm -rf justBrooms.geojson rawSigns.json 
+sh ../cleanSigns.sh
+
+# time rm -rf justBrooms.geojson rawSigns.json 
