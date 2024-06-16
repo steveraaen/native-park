@@ -14,4 +14,6 @@ And restart the terminal or run source ~/.zshrc.
 Discussion: https://stackoverflow.com/questions/74189532/your-ruby-version-is-2-6-8-but-your-gemfile-specified-2-7-5
 
 to initialize new project
-npx @react-native-community/cli@latest init coacoa_hell
+npx react-native@latest init <projectName> --version 0.71.0
+cd <projectName>
+npx react-native-macos-init
