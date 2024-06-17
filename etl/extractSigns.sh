@@ -18,6 +18,7 @@ time jq '{
     }
   ]
 }' rawSigns.json > justBrooms.geojson
+
 sh ../cleanSigns.sh
 
 # time rm -rf justBrooms.geojson rawSigns.json 

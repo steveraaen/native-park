@@ -41,5 +41,5 @@ time jq '
 ' justBrooms.geojson > modifiedBrooms.json
 
 time jq '[.features[].properties.SIGNDESC] | unique[]' modifiedBrooms.json > uniqueSigns.json
-
-python3 makedb.py
+mongosh "mongodb+srv://cluster0.u4d7h.mongodb.net/" --apiVersion 1 --username sraaen
+# python3 makedb.py
