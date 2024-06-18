@@ -1,17 +1,22 @@
 import geopandas as gpd
+import os
+from dotenv import load_dotenv
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
-url= "./etl/py3/modifiedBrooms.json"
+load_dotenv()
+
+monpw = os.getenv('PW_MONGO')
+
+url= "./modifiedBrooms.json"
 df = gpd.read_file(url)
 print(df)
 
-# with spatialite.connect('sl_temp.db') as db:
-#     print(db.execute('SELECT spatialite_version()').fetchone()[0])
+uri = f"mongodb+srv://sraaen:{monpw}@cluster0.u4d7h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+client = MongoClient(uri, server_api=ServerApi('1'))
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
 
-# def query():
-#         connection = sqlite3.connect("signs.db",)
-#         gdf=gpd.read_file('modifiedBrooms.json')
-#         gdf.to_sql('q1sub', connection, schema=None, if_exists='replace', index=True)
-#         print(gdf.head())
-
-
-# mongo pw = Cenmed-gifpiw-0pypno

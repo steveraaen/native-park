@@ -39,7 +39,5 @@ time jq '
     .properties.SIGNDESC |= gsub("1\\sPM ";"1:00PM") 
   )
 ' justBrooms.geojson > modifiedBrooms.json
-
-time jq '[.features[].properties.SIGNDESC] | unique[]' modifiedBrooms.json > uniqueSigns.json
-mongosh "mongodb+srv://cluster0.u4d7h.mongodb.net/" --apiVersion 1 --username sraaen
-# python3 makedb.py
+rm -rf rawSigns.json justBrooms.geojson
+python3 makedb.py
