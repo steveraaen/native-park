@@ -1,10 +1,14 @@
 # native-park
+
+This was compiled on 2019 Macbook Pro with 32gb memory, 2tb storage.
+To resolve ruby conflicts (for installation of ios Cocoapods)
 $ brew update
 $ brew install ruby-build
 $ brew install rbenv
 
 $ rbenv install 2.7.5
 $ rbenv global 2.7.5
+
 After that, you need to export some configurations to define rbenv as default global ruby. For zsh users:
 
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc

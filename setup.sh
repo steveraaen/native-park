@@ -1,13 +1,14 @@
 #!/bin/bash
 cd etl/py3
-pwd
+brew install mongosh
 python3 -m venv parkenv
 source ./parkenv/bin/activate
-python3 -m pip install "pymongo[srv]"
-python3 -m pip install python-dotenv
-brew install mongosh
-pip3 install geopandas 
-sh ../extractSigns.sh
+pip install geopandas 
+pip install pymongo 
+pip install python-dotenv 
+pip freeze > requirements.txt
+python3 makedb.py
+# sh ../extractSigns.sh
 
 
 # source deactivate
