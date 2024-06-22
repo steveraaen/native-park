@@ -1,3 +1,4 @@
+TIMEFORMAT=%R
 time jq '
   .features[] |= (
     .properties.SIGNDESC |= gsub(" SINGLE ARROW\\s|NO PARKING\\s*|MOON & STARS\\s{1,}|NIGHT REGULATION\\s*?"; "") |
