@@ -14,10 +14,10 @@ monpw = os.getenv('PW_MONGO')
 # print(df)
 uri = f"mongodb+srv://sraaen:{monpw}@cluster0.u4d7h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(uri, server_api=ServerApi('1'))
-print(client.list_databases)
-# try:
-#     client.admin.command('ping')
-#     print("Pinged your deployment. You successfully connected to MongoDB!")
-# except Exception as e:
-#     print(e)
+# mongoimport --uri mongodb+srv://sraaen:<PASSWORD>@cluster0.u4d7h.mongodb.net/<DATABASE> --collection <COLLECTION> --type <FILETYPE> --file <FILENAME>
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
 

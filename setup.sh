@@ -7,8 +7,8 @@ pip install geopandas
 pip install pymongo 
 pip install python-dotenv 
 pip freeze > requirements.txt
-python3 makedb.py
-# sh ../extractSigns.sh
+# python3 makedb.py
+sh ../extractSigns.sh
 
 
 # source deactivate
